@@ -1,6 +1,7 @@
 // Lógica principal para construir el acorde
 
 import { cromaSos, cromaBem, acordes, notasBase, cifradoANotas } from './config.js';
+import { obtenerValoresSeleccionados } from './ui.js';
 import { traducirNotas, mostrar } from './utils.js';
 import { reproducirArpegioMixto } from './sound.js';
 
@@ -12,9 +13,8 @@ import { reproducirArpegioMixto } from './sound.js';
 let notasActuales = []; // Se actualizará cada vez que cambie el acorde
 
 export function nombreAcorde(){
-    const tono = document.getElementById("tonos").value;
-    const alter = document.getElementById("alteracion").value;
-    const tipoA = document.getElementById("alteracionM").value;
+    
+    const { tono, alter, tipoA } = obtenerValoresSeleccionados();
 
     let nombre = tono + (alter !== " " ? alter : "") + (tipoA !== " " ? tipoA : "");
     let notaBase = tono + (alter ==="#" || alter ==="b" ? alter : "");

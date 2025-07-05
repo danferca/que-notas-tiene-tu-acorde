@@ -8,23 +8,17 @@ window.addEventListener('DOMContentLoaded', () => {
     valorInicial();
     filtrarAlteraciones();
     nombreAcorde();
-});
 
-document.getElementById("tonos").addEventListener("change", () => {
-    filtrarAlteraciones();
-    nombreAcorde();
-});
+    const ids = ["tonos", "alteracion", "alteracionM"];
+    ids.forEach(id => {
+        document.getElementById(id).addEventListener("change", () => {
+            if (id === "tonos") filtrarAlteraciones();
+            nombreAcorde();
+        });
+    });
 
-document.getElementById("alteracion").addEventListener("change", () => {
-    nombreAcorde();
-});
-
-document.getElementById("alteracionM").addEventListener("change", () => {
-    nombreAcorde();
-});
-
-document.getElementById("playChordBtn").addEventListener("click", () => {
-    const notas = obtenerNotasActuales();
-    console.log("Notas a reproducir:", notas);  // <- importante para depurar
-    if (notas.length > 0) reproducirArpegioMixto(notas);
+    document.getElementById("playChordBtn").addEventListener("click", () => {
+        const notas = obtenerNotasActuales();
+        if (notas.length > 0) reproducirArpegioMixto(notas);
+    });
 });

@@ -9,12 +9,24 @@
     <meta name="keywords" content="generador de acordes, acordes musicales, notas musicales, teoría musical, herramienta interactiva, reproducir acordes" />
     <meta name="author" content="Daniel Cadena" />
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" rel="stylesheet" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/brands.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap">
+    
+    <link rel="stylesheet" href="css/style.css" />
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap">
+    </noscript>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/fontawesome.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/brands.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/brands.min.css">
+    </noscript>     
     
 </head>
 <body>
@@ -59,8 +71,8 @@
             <label for="alteracion">2.</label>
             <select name="2." id="alteracion">
                 <option value=" ">-</option>
-                <option value="#" id="#">#</option>
-                <option value="b" id="b">b</option>
+                <option value="#" id="sostenido">#</option>
+                <option value="b" id="bemol">b</option>
             </select>
                 
         </div>
@@ -129,5 +141,5 @@
   </div>
 </footer>
 </body>
-<script type="module" src="js/main.js"></script>
+<script type="module" src="js/main.js" defer></script>
 </html>
