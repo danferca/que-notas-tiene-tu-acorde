@@ -1,4 +1,4 @@
-# 🎵 Generador de Acordes en Notación Latina
+# 🎵 Qué notas tiene tu acorde
 
 Este es un proyecto web que permite generar acordes musicales mostrando sus notas en **notación latina** (do, re, mi...) a partir de una combinación de tono, alteración y tipo de acorde.
 
