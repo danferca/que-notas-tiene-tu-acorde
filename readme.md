@@ -1,6 +1,16 @@
 # 🎵 Qué notas tiene tu acorde
 
+> Herramienta web interactiva para identificar las **notas musicales** que componen cualquier **acorde**. Ideal para estudiantes, músicos y productores que desean comprender qué hay detrás de cada símbolo armónico.
+
 Este es un proyecto web que permite generar acordes musicales mostrando sus notas en **notación latina** (do, re, mi...) a partir de una combinación de tono, alteración y tipo de acorde.
+
+## ✨ ¿Qué hace esta herramienta?
+
+- Selecciona un acorde (ej. **D♭m7**, **Fmaj9**, **G7sus4**).
+- Descubre al instante **qué notas lo forman**.
+- Escúchalo en tiempo real con un sonido suave tipo arpegio.
+- Interfaz visual clara, sin publicidad ni ruido.
+
 
 ## ✨ Características
 
@@ -12,8 +22,8 @@ Este es un proyecto web que permite generar acordes musicales mostrando sus nota
 
 ## 🚀 Demo en línea
 
-Puedes probarlo aquí (si lo has desplegado):  
-👉 [https://tusitio.github.io](https://tusitio.github.io)
+Puedes probarlo aquí  
+👉 https://danferca.github.io/que-notas-tiene-tu-acorde/
 
 ## 🗂️ Estructura del Proyecto
 generador-acordes/
@@ -55,9 +65,15 @@ node build-to-dist.js
 
 Este generador de acordes fue desarrollado con fines educativos y de experimentación en el diseño de herramientas musicales interactivas para la web.
 
-📄 Licencia
+## ⚠️ Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT.
+El contenido de este repositorio está protegido por derechos de autor.
+
+Está disponible para su uso personal o educativo **únicamente en su versión desplegada**.
+
+No se permite el uso, copia, modificación ni distribución del código fuente sin autorización expresa del autor.
+
+📬 Para solicitudes de uso o colaboración, contacta a Daniel Cadena.
 
 👨‍💻 Autor
 

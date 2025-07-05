@@ -1,5 +1,6 @@
 {
    "scripts": {
-    "build": "node build-to-dist.js"
+    "build": "node build-to-dist.js",
+    "deploy": "gh-pages -d dist"
   }
 }

@@ -1,5 +1,5 @@
 # Archivos de producción
-dist/
+# dist/ se incluye para publicación en GitHub Pages
 
 # Dependencias (si usas npm en el futuro)
 node_modules/
