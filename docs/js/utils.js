@@ -1,0 +1,2 @@
+
+import { cifradoANotas } from './config.js'; export function traducirNotas(cifrado){ return cifrado.map(nota => cifradoANotas[nota]).filter(Boolean); } export function mostrar(acorde, notasArray){ document.getElementById("tonoSelect").innerText = acorde; document.getElementById("notasSelect").innerText = notasArray.join(" - "); }
