@@ -64,4 +64,4 @@ function copiarYMinificar(srcDir, destDir) {
 }
 
 // Ejecutar la función desde 'src/' hacia 'dist/'
-copiarYMinificar('src', 'dist');
+copiarYMinificar('src', 'docs');
