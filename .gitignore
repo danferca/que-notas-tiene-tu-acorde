@@ -1,0 +1,10 @@
+# Archivos de producción
+dist/
+
+# Dependencias (si usas npm en el futuro)
+node_modules/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+main.old.js
