@@ -10,9 +10,13 @@
 
     <link rel="icon" type="image/png" href="favicon.png" />
 
-
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/fontawesome.min.css">
+
     <link rel="stylesheet" href="css/style.css"/>
     
 </head>
@@ -26,16 +30,23 @@
             <div class="intro">
                 <p>Aprende acordes desde cero: elige uno y mira qué notas lo forman.<br>
                    Presiona el botón para escucharlo y entrena tu oído fácilmente.</p>
-
-
             </div>
        </header>
     </div>
     <hr>    
     <br>
+    <section id="guia" aria-label="Guía de uso">        
+        <p><strong>¿Cómo usar el contructor de acordes?</strong></p>
+        <ol>
+            <li><strong></strong> Selecciona la nota raíz del acorde (ej. C, D, E...)</li>
+            <li><strong></strong> Agrega una alteración si la deseas (# o ♭)</li>
+            <li><strong></strong> Elige el tipo de acorde (mayor, menor, 7, sus, etc.)</li>
+        </ol>
+        <p>Al seleccionar, verás el nombre del acorde y las notas que lo componen. Luego puedes reproducirlo con el botón 🎵.</p>    
+    </section>
     <section aria-label="Selección de acordes">
             <div id="tono">
-            <label for="1.">1.</label>
+            <label for="tonos">1.</label>
             <select name="1." id="tonos">
                 <option value="C">C</option>
                 <option value="D">D</option>
@@ -48,7 +59,7 @@
         </div>
             
         <div id="alteraciones">
-            <label for="2.">2.</label>
+            <label for="alteracion">2.</label>
             <select name="2." id="alteracion">
                 <option value=" ">-</option>
                 <option value="#" id="#">#</option>
@@ -56,10 +67,9 @@
             </select>
                 
         </div>
-
     
         <div id="alteracionesM">
-            <label for="3.">3.</label>
+            <label for="alteracionM">3.</label>
             <select name="3." id="alteracionM">
                 <option value=" ">mayor</option>
                 <option value="m" id="m">menor</option>                        
@@ -100,16 +110,7 @@
     </div>
     </main>
     <br>
-    <section id="guia" aria-label="Guía de uso">        
-        <p><strong>¿Cómo usar el contructor de acordes?</strong></p>
-        <ol>
-            <li><strong></strong> Selecciona la nota raíz del acorde (ej. C, D, E...)</li>
-            <li><strong></strong> Agrega una alteración si la deseas (# o ♭)</li>
-            <li><strong></strong> Elige el tipo de acorde (mayor, menor, 7, sus, etc.)</li>
-        </ol>
-        <p>Al seleccionar, verás el nombre del acorde y las notas que lo componen. Luego puedes reproducirlo con el botón 🎵.</p>    
-    </section>
-
+    
     <footer class="app-footer">
     <p>Conectemos:</p>
     <div class="footer-links">

@@ -58,10 +58,11 @@ h1 {
 /* Guía de uso */
 #guia {
     max-width: 37.5rem;
-    margin: 0 auto 1.25rem;
-    padding: 0.9375rem 1.25rem;
+    margin-top: 1.5rem; /* o más si el header no tiene mucho espacio abajo */
+    margin-bottom: 1.25rem;
+    padding: 1.25rem 1.5rem;
     background-color: #1a1a2a;
-    border-left: 0.25rem solid #5dade2;
+    border-left: 0.25rem solid #5dade2;   /* 4px → 0.25rem */
     border-radius: 0.5rem;
     color: #ccc;
     font-size: 0.95rem;
