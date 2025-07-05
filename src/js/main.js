@@ -20,5 +20,14 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("playChordBtn").addEventListener("click", () => {
         const notas = obtenerNotasActuales();
         if (notas.length > 0) reproducirArpegioMixto(notas);
+
+        // 🔔 Evento personalizado para GA4
+        if (typeof gtag === "function") {
+            gtag('event', 'reproducir_acorde', {
+                event_category: 'interaccion_usuario',
+                event_label: notas.join(', '),
+                value: notas.length
+            });
+        }        
     });
 });
