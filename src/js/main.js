@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const ids = ["tonos", "alteracion", "alteracionM"];
     ids.forEach(id => {
-        document.getElementById(id).addEventListener("change", () => {
+        document.getElementById(id).addEventListener("change", (e) => {
             if (id === "tonos") filtrarAlteraciones();
             nombreAcorde();
 
