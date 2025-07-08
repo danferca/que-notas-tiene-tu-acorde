@@ -9,7 +9,7 @@ Este es un proyecto web que permite generar acordes musicales mostrando sus nota
 - Selecciona un acorde (ej. **D♭m7**, **Fmaj9**, **G7sus4**).
 - Descubre al instante **qué notas lo forman**.
 - Escúchalo en tiempo real con un sonido suave tipo arpegio.
-- Interfaz visual clara, sin publicidad ni ruido.
+- Interfaz visual clara.o.
 
 
 ## ✨ Características

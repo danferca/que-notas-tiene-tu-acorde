@@ -58,6 +58,6 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             reproduciendo = false;
             playBtn.disabled = false;
-        }, 3200); // ajusta el delay según duración real del arpegio
+        }, 3100); // ajusta el delay según duración real del arpegio
     });
 });
