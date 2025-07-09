@@ -148,8 +148,54 @@
     <p>🛠️ Inspirado en la pasión por la música y la enseñanza</p>
     <p>📄 <a href="LICENSE" target="_blank">Licencia MIT</a> · © 2025</p>
     <p><a href="privacidad.html">Política de privacidad</a> · © 2025 Daniel Cadena</p>
+    <a href="terminos.html">Términos de uso</a>
   </div>
 </footer>
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 0.8em 1em;
+  font-size: 0.9em;
+  display: none;
+  z-index: 9999;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.3);
+">
+  <div style="flex: 1 1 auto;">
+    Este sitio utiliza cookies de análisis (Google Analytics) para mejorar tu experiencia. 
+    <a href="cookies.html" style="color: #4fc3f7; text-decoration: underline;">Saber más</a>
+  </div>
+  <button onclick="aceptarCookies()" style="
+    background: #4fc3f7;
+    color: #111;
+    border: none;
+    padding: 0.4em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  ">
+    Aceptar
+  </button>
+</div>
+<script>
+  function aceptarCookies() {
+    localStorage.setItem('cookiesAceptadas', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+  if (!localStorage.getItem('cookiesAceptadas')) {
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    });
+  }
+</script>
 </body>
 <script type="module" src="js/main.js" defer></script>
 </html>
