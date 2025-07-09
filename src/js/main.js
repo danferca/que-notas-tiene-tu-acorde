@@ -16,19 +16,23 @@ window.addEventListener('DOMContentLoaded', () => {
             if (id === "tonos") filtrarAlteraciones();
             nombreAcorde(); // actualiza la interfaz y estado
 
-            // Evento GA4: seguimiento por tipo de selector
+            // Evento GA4 con parámetro personalizado único
             const valorSeleccionado = e.target.value;
-            const nombreEvento = {
-                tonos: "cambio_tono",
-                alteracion: "cambio_tipo_acorde",
-                alteracionM: "cambio_modo"
-            }[id];
-
-            const acorde = generarNombreAcorde();
-
-            enviarEventoGA(nombreEvento, "interaccion_usuario", valorSeleccionado, null,{acorde_nombre: acorde});
-        });
+        if (id === "tonos") {
+            enviarEventoGA("cambio_tono", "interaccion_usuario", null, null, {
+                tono_seleccionado: valorSeleccionado
+            });
+        } else if (id === "alteracion") {
+            enviarEventoGA("cambio_tipo_acorde", "interaccion_usuario", null, null, {
+                tipo_seleccionado: valorSeleccionado
+            });
+        } else if (id === "alteracionM") {
+            enviarEventoGA("cambio_modo", "interaccion_usuario", null, null, {
+                modo_seleccionado: valorSeleccionado
+            });
+        }
     });
+});
 
     const playBtn = document.getElementById("playChordBtn");
     let reproduciendo = false;
