@@ -1,7 +1,7 @@
 // Punto de entrada: gestiona eventos e inicia la app
 
 import { valorInicial, filtrarAlteraciones } from './ui.js';
-import { nombreAcorde, obtenerNotasActuales } from './logic.js';
+import { nombreAcorde, obtenerNotasActuales, generarNombreAcorde } from './logic.js';
 import { reproducirArpegioMixto } from './sound.js';
 import { enviarEventoGA } from './gtag-events.js';
 
@@ -14,17 +14,19 @@ window.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => {
         document.getElementById(id).addEventListener("change", (e) => {
             if (id === "tonos") filtrarAlteraciones();
-            nombreAcorde();
+            nombreAcorde(); // actualiza la interfaz y estado
 
             // Evento GA4: seguimiento por tipo de selector
-        const valorSeleccionado = e.target.value;
+            const valorSeleccionado = e.target.value;
             const nombreEvento = {
                 tonos: "cambio_tono",
                 alteracion: "cambio_tipo_acorde",
                 alteracionM: "cambio_modo"
             }[id];
 
-            enviarEventoGA(nombreEvento, "interaccion_usuario", valorSeleccionado);
+            const acorde = generarNombreAcorde();
+
+            enviarEventoGA(nombreEvento, "interaccion_usuario", valorSeleccionado, null,{acorde_nombre: acorde});
         });
     });
 
@@ -42,7 +44,8 @@ window.addEventListener('DOMContentLoaded', () => {
         reproducirArpegioMixto(notas);
 
         // 🔔 GA4 - Evento personalizado
-        enviarEventoGA("reproducir_acorde", "interaccion_usuario", notas.join(', '), notas.length);
+        const acorde = generarNombreAcorde();
+        enviarEventoGA("reproducir_acorde", "interaccion_usuario", notas.join(', '), notas.length, {acorde_nombre: acorde});
 
         // Espera el tiempo del arpegio antes de reactivar el botón
         setTimeout(() => {

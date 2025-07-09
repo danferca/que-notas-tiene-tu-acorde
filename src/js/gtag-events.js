@@ -8,11 +8,12 @@
  * @param {string} etiqueta - Etiqueta descriptiva (ej: valor seleccionado, notas del acorde)
  * @param {number|null} valor - Valor numérico opcional (ej: cantidad de notas)
  */
-export function enviarEventoGA(nombreEvento, categoria, etiqueta, valor = null) {
+export function enviarEventoGA(nombreEvento, categoria, etiqueta, valor = null, extras={}) {
     if (typeof gtag === "function") {
         const data = {
             event_category: categoria,
-            event_label: etiqueta
+            event_label: etiqueta,
+            ...extras
         };
         if (valor !== null) {
             data.value = valor;

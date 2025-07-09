@@ -12,11 +12,17 @@ import { reproducirArpegioMixto } from './sound.js';
 
 let notasActuales = []; // Se actualizará cada vez que cambie el acorde
 
+export function generarNombreAcorde() {
+    const { tono, alter, tipoA } = obtenerValoresSeleccionados();
+    return tono + (alter !== " " ? alter : "") + (tipoA !== " " ? tipoA : "");
+}
+
+
 export function nombreAcorde(){
     
     const { tono, alter, tipoA } = obtenerValoresSeleccionados();
 
-    let nombre = tono + (alter !== " " ? alter : "") + (tipoA !== " " ? tipoA : "");
+    let nombre = generarNombreAcorde();
     let notaBase = tono + (alter ==="#" || alter ==="b" ? alter : "");
 
     const usarSostenidos = !["m", "m7", "m7b5", "°", "m6","m9","m11","m13"].includes(tipoA);
