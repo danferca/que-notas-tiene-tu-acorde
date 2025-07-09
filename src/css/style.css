@@ -299,3 +299,50 @@ select:hover {
         transform: translateY(0);
     }
 }
+
+
+/*para la pagina de Politicas y privacidad*/
+.legal-container {
+    max-width: 40rem;
+    margin: 2rem auto;
+    background-color: #1a1a2a;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+    color: #ddd;
+    animation: fadeIn 1s ease-out;
+}
+
+.legal-container h1, .legal-container h2 {
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.legal-container h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid #5dade2;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.legal-container h2 {
+    font-size: 1.3rem;
+    margin-top: 1.8rem;
+}
+
+.legal-container p, .legal-container li {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.legal-container a {
+    color: #5dade2;
+    text-decoration: none;
+}
+
+.legal-container a:hover {
+    text-decoration: underline;
+}

@@ -3,6 +3,7 @@
 import { valorInicial, filtrarAlteraciones } from './ui.js';
 import { nombreAcorde, obtenerNotasActuales } from './logic.js';
 import { reproducirArpegioMixto } from './sound.js';
+import { enviarEventoGA } from './gtag-events.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     valorInicial();
@@ -16,19 +17,14 @@ window.addEventListener('DOMContentLoaded', () => {
             nombreAcorde();
 
             // Evento GA4: seguimiento por tipo de selector
-        if (typeof gtag === "function") {
-            const valorSeleccionado = e.target.value;
+        const valorSeleccionado = e.target.value;
             const nombreEvento = {
                 tonos: "cambio_tono",
                 alteracion: "cambio_tipo_acorde",
                 alteracionM: "cambio_modo"
             }[id];
 
-            gtag("event", nombreEvento, {
-                event_category: "interaccion_usuario",
-                event_label: valorSeleccionado
-            });
-        }
+            enviarEventoGA(nombreEvento, "interaccion_usuario", valorSeleccionado);
         });
     });
 
@@ -46,13 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
         reproducirArpegioMixto(notas);
 
         // 🔔 GA4 - Evento personalizado
-        if (typeof gtag === "function") {
-            gtag('event', 'reproducir_acorde', {
-                event_category: 'interaccion_usuario',
-                event_label: notas.join(', '),
-                value: notas.length
-            });
-        }
+        enviarEventoGA("reproducir_acorde", "interaccion_usuario", notas.join(', '), notas.length);
 
         // Espera el tiempo del arpegio antes de reactivar el botón
         setTimeout(() => {
@@ -61,3 +51,14 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 3100); // ajusta el delay según duración real del arpegio
     });
 });
+
+// 🎯 Eventos GA4 para clics en redes sociales (YouTube, Twitch, Discord)
+document.querySelectorAll(".footer-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        const red = link.getAttribute("aria-label");
+        if (red) {
+            enviarEventoGA(`click_${red.toLowerCase()}`, "redes_sociales", red);
+        }
+    });
+});
+
