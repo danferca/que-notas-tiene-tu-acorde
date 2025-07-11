@@ -1,6 +1,6 @@
 # robots.txt para que los buscadores indexen todo
-User‑agent: *
+User-agent: *
 Allow: /
 
-# Indica dónde está tu sitemap
 Sitemap: https://danferca.github.io/que-notas-tiene-tu-acorde/sitemap.xml
+
