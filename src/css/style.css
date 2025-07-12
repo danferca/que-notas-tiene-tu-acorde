@@ -170,6 +170,7 @@ select:hover {
 
 #teoria-musical {
   max-width: 37.5rem;
+  text-align: justify;
   margin: 2rem auto;
   padding: 1.5rem;
   background-color: #24243e;
