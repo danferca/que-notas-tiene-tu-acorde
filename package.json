@@ -1,6 +1,9 @@
 {
    "scripts": {
-    "build": "node build-to-dist.js",
-    "deploy": "gh-pages -d dist"
-  }
+      "build": "node build-to-dist.js",
+      "deploy": "gh-pages -d dist"
+   },
+   "dependencies": {
+      "terser": "^5.43.1"
+   }
 }

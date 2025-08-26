@@ -47,9 +47,6 @@ function obtenerOctavaBase(tonica) {
   // de lo contrario, en la octava 4.
   return index >= cromatica.indexOf("mi") ? 3 : 4;
 }
-
-
-
 /**
  * Reproduce un arpegio seguido de un acorde completo, usando progresión de octavas realista.
  * @param {string[]} notas - Lista de notas en notación latina (ej: ["do", "mi", "sol"]).

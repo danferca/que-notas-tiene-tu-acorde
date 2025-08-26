@@ -4,7 +4,6 @@ import { reproducirArpegioMixto } from "./sound.js";
 import { inicializarMenuHamburguesa } from './menu.js';
 import { enviarEventoGA } from './gtag-events.js'; // 📊 GA4
 
-
 // Espera a que el documento HTML se haya cargado completamente
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Página cargada: inicializando eventos");
@@ -67,8 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             enviarEventoGA("reproducir_acorde", "interaccion_usuario", notas.join(', '), notas.length, {
                 incluye_septima: document.getElementById("usarSeptima").checked
             });
-        }
-    
+        }    
             // Espera el tiempo del arpegio antes de reactivar el botón
             setTimeout(() => {
                 reproduciendo = false;

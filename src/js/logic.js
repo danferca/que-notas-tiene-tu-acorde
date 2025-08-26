@@ -17,7 +17,6 @@ export function generarNombreAcorde() {
     return tono + (alter !== " " ? alter : "") + (tipoA !== " " ? tipoA : "");
 }
 
-
 export function nombreAcorde(){
     
     const { tono, alter, tipoA } = obtenerValoresSeleccionados();
@@ -57,9 +56,7 @@ export function nombreAcorde(){
 export function obtenerNotasActuales() {
     return notasActuales;
 }
-
 //PARA nombre-acorde.html//
-
 // Función que traduce notas en notación latina (como "do", "re♯") a notación americana (como "C", "D♯")
 // Recibe un array de notas y devuelve un array traducido
 export function traducirTonica(cifrado) {
@@ -135,13 +132,10 @@ if (usarSeptima && intervalo7 !== null) {
         mostrarError("La combinación ingresada no forma un acorde en su inversión fundamental.");
     }
 }
-
     // Devuelve un objeto con la información del acorde
     return {
         tipoLatina,                        // Ej. "mayor", "menor"
         tipoAmericana,                    // Ej. "", "m", "°"
         tonicaAmericana: traducirTonica([tonica])[0] // Traducción a notación americana
-    };
-
-    
+    };    
 }

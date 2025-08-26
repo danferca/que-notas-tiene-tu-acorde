@@ -1,2 +1,1 @@
-
-export function inicializarMenuHamburguesa() { const toggleBtn = document.querySelector(".menu-toggle"); const menu = document.getElementById("menu-links"); if (toggleBtn && menu) { toggleBtn.addEventListener("click", () => { const expanded = toggleBtn.getAttribute("aria-expanded") === "true"; toggleBtn.setAttribute("aria-expanded", !expanded); toggleBtn.classList.toggle("active"); menu.classList.toggle("active"); }); } }
+export function inicializarMenuHamburguesa(){const e=document.querySelector(".menu-toggle"),t=document.getElementById("menu-links");e&&t&&e.addEventListener("click",()=>{const i="true"===e.getAttribute("aria-expanded");e.setAttribute("aria-expanded",!i),e.classList.toggle("active"),t.classList.toggle("active")})}

@@ -1,38 +1,57 @@
 const fs = require('fs');
 const path = require('path');
+const { minify } = require('terser');
+
+const SRC_DIR = 'src';
+const DEST_DIR = 'docs';
+const extensionesMinificables = ['.html', '.css', '.js'];
 
 /**
- * Minifica contenido de archivo según su extensión
- * - Elimina comentarios y espacios innecesarios
- * - Trata el HTML con cuidado para no romper etiquetas
+ * Limpia el directorio destino antes del build
  */
-function minifyContent(content, ext) {
-  let result = content;
+function limpiarDirectorio(dir) {
+  if (fs.existsSync(dir)) {
+    fs.rmSync(dir, { recursive: true, force: true });
+    console.log(`🧹 Limpiado: ${dir}`);
+  }
+}
 
-  if (ext === '.js' || ext === '.css') {
-    result = result
-      .replace(/\/\/[^\n\r]*/g, '')            // Comentarios de línea
-      .replace(/\/\*[\s\S]*?\*\//g, '')        // Comentarios multilínea
-      .replace(/\s{2,}/g, ' ')                 // Espacios múltiples
-      .replace(/\r?\n/g, '')                   // Quitar saltos de línea
+/**
+ * Minifica contenido según la extensión
+ */
+async function minifyContent(content, ext) {
+  if (ext === '.js') {
+    const result = await minify(content, {
+      compress: true,
+      mangle: true,
+      format: { comments: false },
+    });
+    return result.code;
+  }
+
+  if (ext === '.css') {
+    return content
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/\r?\n/g, '')
       .trim();
   }
 
   if (ext === '.html') {
-    result = result
-      .replace(/<!--(?!<!)[^\[>][\s\S]*?-->/g, '')  // Comentarios HTML seguros
-      .replace(/\r/g, '')                           // Quitar retornos de carro
-      .replace(/\n{2,}/g, '\n')                     // Evitar líneas vacías múltiples
+    return content
+      .replace(/<!--(?!<!)[^\[>][\s\S]*?-->/g, '')
+      .replace(/\r/g, '')
+      .replace(/\n{2,}/g, '\n')
       .trim();
   }
 
-  return result;
+  return content;
 }
 
 /**
  * Copia y minifica archivos de forma recursiva
  */
-function copiarYMinificar(srcDir, destDir) {
+async function copiarYMinificar(srcDir, destDir) {
   if (!fs.existsSync(destDir)) {
     fs.mkdirSync(destDir, { recursive: true });
   }
@@ -45,15 +64,14 @@ function copiarYMinificar(srcDir, destDir) {
     const stats = fs.statSync(srcPath);
 
     if (stats.isDirectory()) {
-      copiarYMinificar(srcPath, destPath);
+      await copiarYMinificar(srcPath, destPath);
     } else {
       const ext = path.extname(item);
       const content = fs.readFileSync(srcPath, 'utf-8');
 
-      if (['.html', '.css', '.js'].includes(ext)) {
-        const minified = minifyContent(content, ext);
-        const finalContent = `\n${minified}`;
-        fs.writeFileSync(destPath, finalContent, 'utf-8');
+      if (extensionesMinificables.includes(ext)) {
+        const minified = await minifyContent(content, ext);
+        fs.writeFileSync(destPath, minified, 'utf-8');
         console.log(`✅ Minificado: ${destPath}`);
       } else {
         fs.copyFileSync(srcPath, destPath);
@@ -63,5 +81,9 @@ function copiarYMinificar(srcDir, destDir) {
   }
 }
 
-// Ejecutar la función desde 'src/' hacia 'dist/'
-copiarYMinificar('src', 'docs');
+// 🧹 Limpiar y ejecutar build
+(async () => {
+  limpiarDirectorio(DEST_DIR);
+  await copiarYMinificar(SRC_DIR, DEST_DIR);
+  console.log('🏁 Build completo.');
+})();

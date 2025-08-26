@@ -74,8 +74,6 @@ export const equivalencias = {
   "si♭": "la♯"
 };
 
-
-
 // Función para calcular la frecuencia de una nota musical dada su notación latina y octava
 export function calcularFrecuenciaNota(nota, octava = 4) {
   // Normaliza la nota: si es un bemol, se convierte a su equivalente sostenido

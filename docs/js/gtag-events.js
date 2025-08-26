@@ -1,2 +1,1 @@
-
-export function enviarEventoGA(nombreEvento, categoria, etiqueta = null, valor = null, extras={}) { if (typeof gtag === "function") { const data = { event_category: categoria, }; if (etiqueta !== null) data.event_label = etiqueta; if (valor !== null) data.value = valor; Object.assign(data, extras); gtag("event", nombreEvento, data); } }
+export function enviarEventoGA(n,e,t=null,l=null,a={}){if("function"==typeof gtag){const o={event_category:e};null!==t&&(o.event_label=t),null!==l&&(o.value=l),Object.assign(o,a),gtag("event",n,o)}}

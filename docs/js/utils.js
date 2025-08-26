@@ -1,2 +1,1 @@
-
-import { cifradoANotas } from './config.js'; export function traducirNotas(cifrado){ return cifrado.map(nota => cifradoANotas[nota]).filter(Boolean); } export function mostrar(acorde, notasArray){ document.getElementById("tonoSelect").innerText = acorde; document.getElementById("notasSelect").innerText = notasArray.join(" - "); }
+import{cifradoANotas}from"./config.js";export function traducirNotas(t){return t.map(t=>cifradoANotas[t]).filter(Boolean)}export function mostrar(t,e){document.getElementById("tonoSelect").innerText=t,document.getElementById("notasSelect").innerText=e.join(" - ")}

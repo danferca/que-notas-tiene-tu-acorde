@@ -1,4 +1,3 @@
-
 /* 🎵 Reset */
 html {
   box-sizing: border-box;
@@ -15,7 +14,7 @@ html {
 .menu-simple {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* 🔧 para que el botón y los enlaces se repartan */
+  justify-content: center; /* ✅ centrado por defecto */
   align-items: center;
   width: 100%;
   background-color: #1a1a1a;
@@ -25,11 +24,10 @@ html {
   font-weight: 600;
   font-size: 1.05em;
   gap: 0.8em;
-  border-bottom: 1px solid #333;
+  border-bottom: 0.0625em solid #333;
   box-shadow: 0 0.125em 0.25em rgba(0,0,0,0.15);
-  position: relative; /* ✅ ahora el nav es referencia para el menú desplegable */
+  position: relative; /* ✅ referencia para menú desplegable */
 }
-
 
 .menu-simple .enlace {
   color: #50bff2;
@@ -52,90 +50,18 @@ html {
   color: #bbb;
 }
 
-@media (max-width: 600px) {
-  .menu-simple {
-    flex-wrap: wrap;
-    flex-direction: row; /* 🔧 Fuerza distribución horizontal */
-    justify-content: center;
-    gap: 0.5em;
-    padding: 0.8em 1em;
-    font-size: 0.9em;
-  }
-
-  .menu-simple .enlace {
-    padding: 0.2em 0.5em;
-  }
-
-  .menu-simple .separador,
-  .menu-simple .separador-legal {
-    display: none; /* Ocultar separadores para ganar espacio */
-  }
-}
-
-@media (max-width: 48em) {
-  .menu-simple {
-    flex-direction: column;
-    align-items: center; /* 🔧 CENTRA el menú en móviles */
-  }
-  
-}
-/* 📱 Responsive Menu */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 2em;
-  height: 2em;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  z-index: 999;
-}
-
-.menu-toggle .bar {
-  width: 1.5em;
-  height: 0.2em;
-  background-color: #e0e0e0;
-  margin: 0.2em 0;
-  border-radius: 0.1em;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg);
-  position: absolute;
-}
-
-.menu-toggle.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg);
-  position: absolute;
-}
-
-.menu-toggle .bar {
-  transform-origin: center;
-  position: relative;
-}
-
-@media (min-width: 48em) {
-  .enlace-legal,
-  .separador-legal {
-    display: inline;
-  }
-}
-
+/* 📱 Responsive: móviles */
 @media (max-width: 48em) {
   .menu-toggle {
     display: flex;
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
   }
 
   .menu-links {
-    max-height: 80vh;
+    max-height: 80em;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -166,6 +92,78 @@ html {
   }
 }
 
+/* 🖥️ Responsive: pantallas grandes */
+@media (min-width: 48em) {
+  .menu-toggle {
+    display: none !important;
+    position: static;
+  }
+
+  .menu-links {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    position: static;
+    width: auto;
+    padding: 0.8em 0;
+    margin: 0 auto;
+  }
+
+  .menu-simple {
+    justify-content: center;
+  }
+
+  .enlace-legal,
+  .separador-legal {
+    display: inline;
+  }
+}
+
+/* 📱 Botón hamburguesa */
+.menu-toggle {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+.menu-toggle .bar {
+  width: 1.5em;
+  height: 0.2em;
+  background-color: #e0e0e0;
+  margin: 0.2em 0;
+  border-radius: 0.1em;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  position: relative;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+/* 🎬 Animación menú desplegable */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -287,4 +285,3 @@ body {
 .footer-credits a:hover {
   text-decoration: underline;
 }
-

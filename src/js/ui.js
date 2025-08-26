@@ -46,10 +46,7 @@ export function filtrarAlteraciones() {
         document.getElementById("bemol").style.display = "inline";
     }
 }
-
-
 //PARA nombre-acorde.html//
-
 // ==============================
 // SECCIÓN: Resultados y mensajes
 // ==============================
@@ -85,7 +82,6 @@ export function mostrarError(mensaje) {
 // ==============================
 // SECCIÓN: Controles
 // ==============================
-
 /**
  * Muestra el resultado del acorde detectado.
  * @param {{ nombreLatino: string, nombreAmericano: string }} acorde

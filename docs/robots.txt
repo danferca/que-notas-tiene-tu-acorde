@@ -1,6 +1,0 @@
-# robots.txt para que los buscadores indexen todo
-User-agent: *
-Allow: /
-
-Sitemap: https://danferca.github.io/que-notas-tiene-tu-acorde/sitemap.xml
-
