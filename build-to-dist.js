@@ -81,9 +81,24 @@ async function copiarYMinificar(srcDir, destDir) {
   }
 }
 
+function copiarArchivosRaiz() {
+  const archivos = ['sitemap.xml', 'robots.txt'];
+  archivos.forEach((archivo) => {
+    const origen = path.join(__dirname, archivo);
+    const destino = path.join(DEST_DIR, archivo);
+    if (fs.existsSync(origen)) {
+      fs.copyFileSync(origen, destino);
+      console.log(`📄 Copiado: ${archivo} a docs/`);
+    }
+  });
+}
+
+
 // 🧹 Limpiar y ejecutar build
 (async () => {
   limpiarDirectorio(DEST_DIR);
   await copiarYMinificar(SRC_DIR, DEST_DIR);
+  copiarArchivosRaiz(); // ✅ Copiar sitemap y robots desde raíz
   console.log('🏁 Build completo.');
 })();
+
