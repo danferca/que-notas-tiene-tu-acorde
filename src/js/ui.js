@@ -1,5 +1,9 @@
 // Funciones relacionadas con la interfaz de usuario
 
+// ==============================
+// SECCIÓN: Selectores (tónica, alteración, tipo)
+// ==============================
+
 // Esta función reinicia los selectores de alteración y tipo de acorde
 // Establece el valor inicial vacío (sin alteración y sin tipo)
 export function valorInicial() {
@@ -42,4 +46,54 @@ export function filtrarAlteraciones() {
         document.getElementById("bemol").style.display = "inline";
     }
 }
+
+
+//PARA nombre-acorde.html//
+
+// ==============================
+// SECCIÓN: Resultados y mensajes
+// ==============================
+
+// Muestra los nombres del acorde en la interfaz, tanto en notación latina como americana
+// Recibe como parámetros los nombres ya formateados, por ejemplo: "do mayor" y "C"
+export function mostrarResultado(nombreLatino, nombreAmericano) {
+    document.getElementById("notacionLatina").innerText = nombreLatino;
+    document.getElementById("notacionAmericana").innerText = nombreAmericano;
+}
+
+/**
+ * Muestra un mensaje de error en pantalla.
+ * Si no se proporciona mensaje, oculta el contenedor.
+ * @param {string|null} mensaje - El mensaje a mostrar. Si es null o vacío, oculta el error.
+ */
+
+// Controla la visibilidad del mensaje de error según la validez de la selección
+// Si `mostrar` es true, el mensaje se muestra (display: block); si es false, se oculta (display: none)
+export function mostrarError(mensaje) {
+    const mensajeError = document.getElementById("mensajeError");
+    if (!mensajeError) return;
+
+    if (mensaje) {
+        mensajeError.textContent = mensaje;
+        mensajeError.style.display = "block";
+    } else {
+        mensajeError.textContent = "";
+        mensajeError.style.display = "none";
+    }
+}
+
+// ==============================
+// SECCIÓN: Controles
+// ==============================
+
+/**
+ * Muestra el resultado del acorde detectado.
+ * @param {{ nombreLatino: string, nombreAmericano: string }} acorde
+ */
+// Activa o desactiva el botón de detección del acorde
+// Si `disabled` es true, el botón se desactiva; si es false, se habilita
+export function actualizarBoton(disabled) {
+    document.getElementById("detectarAcorde").disabled = disabled;
+}
+
 

@@ -24,7 +24,9 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap">
 
     <!-- ✅ Estilos propios primero (bloqueantes necesarios) -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style-limpio.css">
+
 
     <!-- ✅ Google Fonts diferido -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" media="print" onload="this.media='all'">
@@ -52,19 +54,40 @@
     </script>
         
 </head>
-<body>
+<body>  
+    <nav class="menu-simple">
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-links">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div id="menu-links" class="menu-links">
+          <a href="sobre.html" class="enlace">Sobre la app</a>
+          <span class="separador">|</span>
+          <a href="index.html" class="enlace">🎼 Notas del acorde</a>
+          <span class="separador">|</span>
+          <a href="nombre-acorde.html" class="enlace">🔍 Detectar acorde</a>
+          <span class="separador separador-legal">|</span>
+          <a href="terminos.html" class="enlace enlace-legal">Términos</a>
+          <a href="privacidad.html" class="enlace enlace-legal">Privacidad</a>
+        </div>
+    </nav>
+
     <main class="app-container">
-       <header id="titulo">
+       <header>
              <div class="app-container">
-            <div id="titulo">
+               <div id="titulo">
                 <h1>Descubre la estructura de cualquier acorde</h1>
-            <br>
-            <div class="intro">
-                <p>Aprende acordes desde cero: elige uno y mira qué notas lo forman.<br>
-                   Presiona el botón para escucharlo y entrena tu oído fácilmente.</p>
-            </div>
+                <br>
+                <div class="intro">
+                    <p>Aprende acordes desde cero: elige uno y mira qué notas lo forman.<br>
+                      Presiona el botón para escucharlo y entrena tu oído fácilmente.
+                    </p>
+                </div>
+               </div> 
+             </div>   
        </header>
-    </div>
+    
     <hr>    
     <br>
     <section id="guia" aria-label="Guía de uso">        
@@ -78,7 +101,7 @@
     </section>
     <section aria-label="Selección de acordes">
             <div id="tono">
-            <label for="tonos">1.</label>
+            <label for="tonos">1. Tónica:</label>
             <select name="1." id="tonos">
                 <option value="C">C</option>
                 <option value="D">D</option>
@@ -91,7 +114,7 @@
         </div>
             
         <div id="alteraciones">
-            <label for="alteracion">2.</label>
+            <label for="alteracion">2. Alteración:</label>
             <select name="2." id="alteracion">
                 <option value=" ">-</option>
                 <option value="#" id="sostenido">#</option>
@@ -101,7 +124,7 @@
         </div>
     
         <div id="alteracionesM">
-            <label for="alteracionM">3.</label>
+            <label for="alteracionM">3. Tipo de acorde:</label>
             <select name="3." id="alteracionM">
                 <option value=" ">mayor</option>
                 <option value="m" id="m">menor</option>                        
@@ -134,14 +157,15 @@
         <div id="notasTono">
             <label for="notas" id="notasSelect"></label>              
         </div>
-    </div>
     </section>
     <!-- BOTÓN DE REPRODUCCIÓN -->
     <div class="reproducir-contenedor">
         <button id="playChordBtn" aria-label="Reproducir el acorde seleccionado">🔊 Reproducir acorde</button>
 
-    <section id="teoria-musical" aria-label="Teoría musical sobre acordes">
-      <h2>¿Cómo se construyen los acordes?</h2>
+    </div>
+
+    <section id="teoria-musical" aria-labelledby="Teoría musical sobre acordes">
+      <h2 id="teoriaTitulo">¿Cómo se construyen los acordes?</h2>
       <p>
         Los acordes básicos nacen de la superposición de tres notas: la <strong>tónica</strong> (nota base), la <strong>tercera</strong> (que determina si el acorde es mayor o menor) y la <strong>quinta</strong> (que le da estabilidad). Esta estructura se conoce como <em>tríada en posición fundamental</em>.
       </p>
@@ -149,9 +173,6 @@
         Al añadir nuevas notas como la <strong>sétima</strong>, <strong>novena</strong> o <strong>oncena</strong>, se obtienen acordes más complejos y ricos en color, ideales para estilos como el jazz o la música cinematográfica.
       </p>
     </section>
-
-
-    </div>
     </main>
     <br>
     
@@ -179,7 +200,7 @@
         <a href="terminos.html">Términos de Uso</a> · © 2025
       </p>
     </div>
-</footer>
+  </footer>
 
 <!-- Aviso de Cookies -->
 <div id="cookie-banner" style="

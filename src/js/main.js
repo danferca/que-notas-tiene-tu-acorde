@@ -4,6 +4,9 @@ import { valorInicial, filtrarAlteraciones } from './ui.js';
 import { nombreAcorde, obtenerNotasActuales, generarNombreAcorde } from './logic.js';
 import { reproducirArpegioMixto } from './sound.js';
 import { enviarEventoGA } from './gtag-events.js';
+import { inicializarMenuHamburguesa } from './menu.js';
+
+inicializarMenuHamburguesa();
 
 window.addEventListener('DOMContentLoaded', () => {
     valorInicial();

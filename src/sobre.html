@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre esta herramienta</title>
+  <meta name="description" content="Conoce el propósito de esta aplicación: entrenar tu oído para identificar acordes. Descubre sus funciones y cómo pueden ayudarte a mejorar tu percepción auditiva musical." />
+  <meta name="author" content="Daniel Cadena" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- ✅ Precarga de fuente principal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap">
+
+  <!-- ✅ Estilos locales -->
+  <link rel="stylesheet" href="css/base.css">
+
+  <!-- ✅ Google Fonts diferido -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap">
+  </noscript>
+
+  <!-- ✅ Font Awesome (solo brands) diferido -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/fontawesome.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/brands.min.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/brands.min.css">
+  </noscript>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPDSGY05FZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.addEventListener('load', () => {
+          gtag('js', new Date());
+          gtag('config', 'G-YPDSGY05FZ');
+        });
+    </script>
+</head>
+
+<body>
+  <nav class="menu-simple">
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-links">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div id="menu-links" class="menu-links">
+          <a href="sobre.html" class="enlace">Sobre la app</a>
+          <span class="separador">|</span>
+          <a href="index.html" class="enlace">🎼 Notas del acorde</a>
+          <span class="separador">|</span>
+          <a href="nombre-acorde.html" class="enlace">🔍 Detectar acorde</a>
+          <span class="separador separador-legal">|</span>
+          <a href="terminos.html" class="enlace enlace-legal">Términos</a>
+          <a href="privacidad.html" class="enlace enlace-legal">Privacidad</a>
+        </div>
+    </nav>
+
+  <main class="app-container">
+    <h1 style="text-align:center;">¿Por qué esta app?</h1>
+    <section id="guia">
+      <p><strong>Entrenamiento auditivo como objetivo central</strong></p>
+      <p>
+        Esta aplicación ha sido diseñada con un propósito claro: ayudarte a entrenar tu oído para identificar acordes.
+        A diferencia de otras herramientas que se enfocan en mostrar gráficos, notación o diagramas,
+        aquí el foco está en el sonido. Queremos que reconozcas un acorde por cómo suena, no por cómo se ve.
+      </p>
+      <p><strong>¿Qué puedes hacer aquí?</strong></p>
+      <ul>
+        <li><strong>Detectar acordes:</strong> seleccionas tres o cuatro notas (sin importar su orden) y obtienes el nombre del acorde.</li>
+        <li><strong>Explorar notas de un acorde:</strong> eliges un acorde y escuchas cómo suena (en su forma fundamental).</li>
+      </ul>
+      <p>
+        Ambas funciones están pensadas para que asocies el nombre del acorde con su sonido. 
+        Cuanto más practiques, más fácil será identificar acordes al escucharlos.
+      </p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Conectemos:</p>
+    <div class="footer-links">
+      <a href="https://www.twitch.tv/danferca/about" target="_blank" aria-label="Twitch">
+        <i class="fab fa-twitch"></i>
+      </a>
+      <a href="https://www.youtube.com/@danferca9169" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://discord.gg/jZnSbXD" target="_blank" aria-label="Discord">
+        <i class="fab fa-discord"></i>
+      </a>
+    </div>
+
+    <div class="footer-credits">
+      <p>🎵 Proyecto: <strong>Qué notas tiene tu acorde</strong></p>
+      <p>👨‍💻 Desarrollado por <strong>Daniel Cadena</strong></p>
+      <p>🛠️ Inspirado en la pasión por la música y la enseñanza</p>
+      <p>
+        📄 <a href="LICENSE" target="_blank">Licencia MIT</a> · 
+        <a href="privacidad.html">Política de Privacidad</a> · 
+        <a href="terminos.html">Términos de Uso</a> · © 2025
+      </p>
+    </div>
+  </footer>
+  <!-- Aviso de Cookies -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 0.8em 1em;
+  font-size: 0.9em;
+  display: none;
+  z-index: 9999;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.3);
+">
+  <div style="flex: 1 1 auto;">
+    Este sitio utiliza cookies de análisis (Google Analytics) para mejorar tu experiencia. 
+    <a href="cookies.html" style="color: #4fc3f7; text-decoration: underline;">Saber más</a>
+  </div>
+  <button onclick="aceptarCookies()" style="
+    background: #4fc3f7;
+    color: #111;
+    border: none;
+    padding: 0.4em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  ">
+    Aceptar
+  </button>
+</div>
+<script>
+    function aceptarCookies() {
+        localStorage.setItem('cookiesAceptadas', 'true');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+
+    if (!localStorage.getItem('cookiesAceptadas')) {
+        window.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('cookie-banner').style.display = 'flex';
+        });
+    }
+    </script>
+</body>
+<script type="module" src="js/interacciones-globales.js" defer></script>
+</html>

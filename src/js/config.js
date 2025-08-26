@@ -11,6 +11,28 @@ export const cifradoANotas = {
   "Ab": "la♭", "A": "la", "A#": "la♯", "Bb": "si♭", "B": "si"
 };
 
+// Diccionario para traducir notación latina (do, re, mi...) a cifrado americano (C, D, E...)
+// Incluye las variantes alteradas tanto con sostenido (♯) como con bemol (♭)
+export const notasACifrado = {
+    "do": "C",       // do → C
+    "do♯": "C♯",     // do sostenido → C sharp
+    "re♭": "D♭",     // re bemol → D flat
+    "re": "D",
+    "re♯": "D♯",
+    "mi♭": "E♭",
+    "mi": "E",
+    "fa": "F",
+    "fa♯": "F♯",
+    "sol♭": "G♭",
+    "sol": "G",
+    "sol♯": "G♯",
+    "la♭": "A♭",
+    "la": "A",
+    "la♯": "A♯",
+    "si♭": "B♭",
+    "si": "B"
+};
+
 // Diccionario de acordes e intervalos (en semitonos desde la tónica)
 export const acordes = {
   " ": [0, 4, 7],               // Mayor
