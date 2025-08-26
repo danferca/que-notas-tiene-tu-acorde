@@ -93,12 +93,12 @@ function copiarArchivosRaiz() {
   });
 }
 
-
 // 🧹 Limpiar y ejecutar build
 (async () => {
   limpiarDirectorio(DEST_DIR);
   await copiarYMinificar(SRC_DIR, DEST_DIR);
   copiarArchivosRaiz(); // ✅ Copiar sitemap y robots desde raíz
+  fs.copyFileSync('.nojekyll', path.join(DEST_DIR, '.nojekyll'));
   console.log('🏁 Build completo.');
 })();
 
