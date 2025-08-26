@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Cuál es tu acorde?</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap">
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style-nombre-acorde-limpio.css">
+    
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap">
+    </noscript>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/fontawesome.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/brands.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/brands.min.css">
+    </noscript>   
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPDSGY05FZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.addEventListener('load', () => {
+          gtag('js', new Date());
+          gtag('config', 'G-YPDSGY05FZ');
+        });
+    </script>
+</head>
+<body>
+    <nav class="menu-simple">
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-links">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div id="menu-links" class="menu-links">
+          <a href="sobre.html" class="enlace">Sobre la app</a>
+          <span class="separador">|</span>
+          <a href="index.html" class="enlace">🎼 Notas del acorde</a>
+          <span class="separador">|</span>
+          <a href="nombre-acorde.html" class="enlace">🔍 Detectar acorde</a>
+          <span class="separador separador-legal">|</span>
+          <a href="terminos.html" class="enlace enlace-legal">Términos</a>
+          <a href="privacidad.html" class="enlace enlace-legal">Privacidad</a>
+        </div>
+    </nav>
+    <main class="app-container">
+        <header>
+            <div class="app-container">
+                <div id="titulo">
+                <h1>Descubre el acorde</h1>
+                <br>
+                    <div class="intro">
+                        <p>¿No sabes qué acorde estás tocando? Descúbrelo aquí.<br>
+                            Selecciona las notas que lo componen (base, tercera y quinta) y sabrás su nombre al instante.<br>
+                            Puedes añadir la séptima y elegir entre sostenidos o bemoles. <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <hr>
+        <br>
+        <section id="guia" aria-label="Guía de uso">
+          <p><strong>¿Cómo descubrir el nombre de un acorde?</strong></p>
+            <ol>
+              <li><strong>Selecciona la nota base (tónica)</strong>, que será el fundamento del acorde.</li>
+              <li><strong>Elige las otras dos notas</strong> que lo componen: la tercera y la quinta.</li>
+              <li><strong>Opcional:</strong> puedes agregar una cuarta nota (la séptima) si deseas enriquecer el acorde.</li>
+              <li>Verifica que <strong>todas las notas sean distintas</strong>; esto habilitará el botón de detección.</li>
+              <li>Haz clic en <strong>“Detectar acorde”</strong> para conocer su nombre en notación latina y americana.</li>
+              <li>Luego puedes usar el botón <strong>🎵 Escuchar selección</strong> para oír cómo suena el conjunto de notas.</li>
+            </ol>
+          <p>Cuando las notas seleccionadas formen una estructura válida, el botón <strong>Detectar acorde</strong> se activará. Se mostrará el nombre del acorde tanto en notación latina como americana.</p>
+        </section>
+        <br>
+        <label>
+            <input type="checkbox" id="usarBemoles">Usar bemoles
+        </label>
+        <section id="seleccionNotas" aria-label="Selección de notas">
+            <div id="notas">
+                <div class="nota-par">
+                <label for="notaUno">Nota base (Tónica)</label>
+                <select name="tonica" id="notaUno"></select>
+                </div>
+                <div class="nota-par">
+                <label for="notaDos">Nota intermedia (Tercera)</label>
+                <select name="mediante" id="notaDos"></select>
+                </div>
+                <div class="nota-par">
+                <label for="notaTres">Nota superior (Quinta)</label>
+                <select name="dominante" id="notaTres"></select>
+                </div>
+            </div>
+            <div id="extendidas">
+                <label>
+                <input type="checkbox" id="usarSeptima">Incluir séptima
+                </label>
+                <div id="campoSeptima">
+                    <label for="notaCuatro">Nota 4 (séptima)</label>
+                    <select id="notaCuatro"></select>
+                </div>
+            </div>
+        </section>
+        <br>
+        <p id="mensajeError"> </p>
+        <br>
+        <div id="contenedorBoton">
+            <button id="detectarAcorde" disabled>Detectar acorde</button>
+        </div>
+        <br>
+        <div id="contenedorNombreAcorde">
+            <section id="nombreAcorde">
+                <div class="notacionLatina">
+                <label for="acordeLatino" id="notacionLatina"></label>
+                </div>
+                <div class="notacionAmericana">
+                <label for="cifrado" id="notacionAmericana"></label>
+                </div>
+                <button id="reproducirNotas" disabled>🎵 Escuchar selección</button>
+            </section>
+        </div>
+        <section id="teoria-musical" aria-labelledby="teoriaTitulo">
+          <h2 id="teoriaTitulo">¿Cómo se construyen los acordes?</h2>
+            <p>
+              Los acordes se forman al combinar notas separadas por intervalos específicos. Una tríada contiene tres notas: la <strong>tónica</strong> (nota base), la <strong>tercera</strong> (mayor o menor, que define su carácter) y la <strong>quinta</strong> (que aporta estabilidad). Esta estructura se conoce como <em>posición fundamental</em>.
+            </p>
+            <p>
+              Si se reorganiza el orden de estas notas y una diferente a la tónica queda en la base, se producen <strong>inversiones</strong>. Aunque el acorde sigue teniendo las mismas notas, su función y sonido cambian. Esta herramienta trabaja exclusivamente con <strong>acordes en posición fundamental</strong>, por lo que las notas deben corresponder a esa estructura para que el acorde pueda ser reconocido correctamente.
+            </p>
+        </section>
+    </main>
+     <br>
+    
+   <footer class="app-footer">
+    <p>Conectemos:</p>
+    <div class="footer-links">
+      <a href="https://www.twitch.tv/danferca/about" target="_blank" aria-label="Twitch">
+        <i class="fab fa-twitch"></i>
+      </a>
+      <a href="https://www.youtube.com/@danferca9169" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://discord.gg/jZnSbXD" target="_blank" aria-label="Discord">
+        <i class="fab fa-discord"></i>
+      </a>
+    </div>
+    <div class="footer-credits">
+      <p>🎵 Proyecto: <strong>Qué notas tiene tu acorde</strong></p>
+      <p>👨‍💻 Desarrollado por <strong>Daniel Cadena</strong></p>
+      <p>🛠️ Inspirado en la pasión por la música y la enseñanza</p>
+      <p>
+        📄 <a href="LICENSE" target="_blank">Licencia MIT</a> · 
+        <a href="privacidad.html">Política de Privacidad</a> · 
+        <a href="terminos.html">Términos de Uso</a> · © 2025
+      </p>
+    </div>
+</footer>
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 0.8em 1em;
+  font-size: 0.9em;
+  display: none;
+  z-index: 9999;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.3);
+">
+  <div style="flex: 1 1 auto;">
+    Este sitio utiliza cookies de análisis (Google Analytics) para mejorar tu experiencia. 
+    <a href="cookies.html" style="color: #4fc3f7; text-decoration: underline;">Saber más</a>
+  </div>
+  <button onclick="aceptarCookies()" style="
+    background: #4fc3f7;
+    color: #111;
+    border: none;
+    padding: 0.4em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  ">
+    Aceptar
+  </button>
+</div>
+    <script>
+    function aceptarCookies() {
+        localStorage.setItem('cookiesAceptadas', 'true');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+    if (!localStorage.getItem('cookiesAceptadas')) {
+        window.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('cookie-banner').style.display = 'flex';
+        });
+    }
+    </script>
+        
+</body>
+<script type="module" src="js/init-nombre-acorde.js" defer></script>
+<script type="module" src="js/interacciones-globales.js" defer></script>
+</html>
